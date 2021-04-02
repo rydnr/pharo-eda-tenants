@@ -1,41 +1,30 @@
-# Object Diff
-An object diff framework in Pharo.
+# Pharo EDA Tenants
+
+An EDA domain for Tenants.
 
 ## Motivation
 
-Assertions failing in SUnit are sometimes difficult to dig into. In particular, those comparing two long and almost identical strings.
+Some PharoEDA applications need to support multitenancy. In fact, PharoEDA itself included a mandatory `tenant` parameter (but besides that it's tenant agnostic).
+This PharoEDA domain defines a simple model for tenants.
 
 ## Design
 
-Object Diff injects extension methods into certain classes to compute the differences with arbitrary instances.
-It uses double-dispatch to properly compare classes according to their semantics. As last resort, it relies on instVar comparisions.
+This domain provides a minimalistic design for tenants, and the tools to extend them.
 
 ## Usage
 
 First, load it with Metacello:
 
 ``` smalltalk
-Metacello new repository: 'github://rydnr/object-diff:main'; baseline: 'ObjectDiff'; load
-```
-
-Afterwards, just call `yourInstance odDiff: anotherInstance`. It will return a specific instance of the classes of the package *Object-Diff*. You'll be able to ask if they are `identical`, `incompatible`, or to display the differences in a custom format.
-
-## Customization
-
-By default Object-Diff uses wildcards to compare objects. For example,
-``` smalltalk
-'abc' odDiff: '<ANYTHING>' identical
-```
-returns `true`. You can disable this feature with `ODWildcards disable`, or add your own wildcards with
-``` smalltalk
-ODWildcards matches at: '*' put: true
+Metacello new repository: 'github://osoco/pharo-eda-tenants:main'; baseline: 'PharoEDATenants'; load
 ```
 
 ## Work in progress
 
-- Add Glamorous Toolkit visualization.
-- Support for file diffs.
-- Improve String vs String differences.
+- Add Fame metamodel.
+- Add ombu generators.
+- Add json schema generators.
+- Add changeset generators for RabbitMQ.
 
 ## Credits
-- Background of the Pharo image by <a href="https://pixabay.com/users/jobischpeuchet-4390049/">JoBischPeuchet</a> from <a href="https://pixabay.com/">Pixabay</a>.
+- Background of the Pharo image by <a href="https://pixabay.com/users/geralt-9301/">Gerd Altmann</a> from <a href="https://pixabay.com/">Pixabay</a>.

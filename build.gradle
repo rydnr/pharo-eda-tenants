@@ -26,25 +26,25 @@ task retrieveFreshGtoolkitImage(type: RetrieveFreshGtoolkitImageTask, dependsOn:
   gtHome = gtoolkitHome
 }
 
-task loadObjectDiff(type: EvalSmalltalkExpressionTask, dependsOn: downloadFreshPharoImage) {
+task loadPharoEDATenants(type: EvalSmalltalkExpressionTask, dependsOn: downloadFreshPharoImage) {
     pharoPath = customPharoPath
     commonPharoArgs = customPharoArgs
-    expression = "Metacello new repository: 'github://rydnr/object-diff:${branchOrTag}'; baseline: 'ObjectDiff'; onConflictUseLoaded; load"
+    expression = "Metacello new repository: 'github://osoco/pharo-eda-tenants:${branchOrTag}'; baseline: 'PharoEDATenants'; onConflictUseLoaded; load"
 }
 
-task loadObjectDiffGt(type: EvalSmalltalkExpressionTask, dependsOn: retrieveFreshGtoolkitImage) {
+task loadPharoEDATenantsGt(type: EvalSmalltalkExpressionTask, dependsOn: retrieveFreshGtoolkitImage) {
     pharoPath = customPharoPath
     commonPharoArgs = customPharoArgs
-    expression = "Metacello new repository: 'github://rydnr/object-diff:${branchOrTag}'; baseline: 'ObjectDiff'; onConflictUseLoaded; load"
+    expression = "Metacello new repository: 'github://osoco/pharo-eda-tenants:${branchOrTag}'; baseline: 'PharoEDATenants'; onConflictUseLoaded; load"
 }
 
-task customizeImage(type: RunSmalltalkScriptTask, dependsOn: loadObjectDiff) {
+task customizeImage(type: RunSmalltalkScriptTask, dependsOn: loadPharoEDATenants) {
     script = "customize.st"
     pharoPath = customPharoPath
     commonPharoArgs = customPharoArgs
 }
 
-task customizeImageGt(type: RunSmalltalkScriptTask, dependsOn: loadObjectDiffGt) {
+task customizeImageGt(type: RunSmalltalkScriptTask, dependsOn: loadPharoEDATenantsGt) {
     script = "customize.st"
     pharoPath = customPharoPath
     commonPharoArgs = customPharoArgs
