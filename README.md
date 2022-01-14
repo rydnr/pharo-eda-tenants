@@ -15,8 +15,8 @@ This domain provides a minimalistic design for tenants, and the tools to extend 
 
 First, load it with Metacello:
 
-``` smalltalk
-Metacello new repository: 'github://osoco/pharo-eda-tenants:main'; baseline: 'PharoEDATenants'; load
+```smalltalk
+Metacello new repository: 'github://rydnr/pharo-eda-tenants:main'; baseline: 'PharoEDATenants'; load
 ```
 
 ## Work in progress
@@ -27,4 +27,5 @@ Metacello new repository: 'github://osoco/pharo-eda-tenants:main'; baseline: 'Ph
 - Add changeset generators for RabbitMQ.
 
 ## Credits
+
 - Background of the Pharo image by <a href="https://pixabay.com/users/geralt-9301/">Gerd Altmann</a> from <a href="https://pixabay.com/">Pixabay</a>.

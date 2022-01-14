@@ -49,7 +49,7 @@ BaselineOfPharoEDATenants >> declarePharoEDAIn: spec [
 	spec
 		baseline: 'PharoEDA'
 		with: [ spec
-				repository: 'github://osoco/pharo-eda:event-listening-b/src'
+				repository: 'github://rydnr/pharo-eda:event-listening-b/src'
 				 ].
 	^ spec
 
